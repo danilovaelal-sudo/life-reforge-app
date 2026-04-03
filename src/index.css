@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,33 +6,33 @@
 
 @layer base {
   :root {
-    --background: 40 20% 97%;
-    --foreground: 20 10% 10%;
+    --background: 30 25% 96%;
+    --foreground: 25 15% 15%;
 
-    --card: 40 15% 95%;
-    --card-foreground: 20 10% 10%;
+    --card: 30 20% 93%;
+    --card-foreground: 25 15% 15%;
 
-    --popover: 40 20% 97%;
-    --popover-foreground: 20 10% 10%;
+    --popover: 30 25% 96%;
+    --popover-foreground: 25 15% 15%;
 
-    --primary: 12 90% 52%;
+    --primary: 15 70% 48%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 20 8% 15%;
-    --secondary-foreground: 40 20% 97%;
+    --secondary: 25 12% 18%;
+    --secondary-foreground: 30 25% 96%;
 
-    --muted: 35 15% 90%;
-    --muted-foreground: 20 8% 40%;
+    --muted: 28 18% 88%;
+    --muted-foreground: 25 10% 42%;
 
-    --accent: 45 95% 55%;
-    --accent-foreground: 20 10% 10%;
+    --accent: 42 75% 58%;
+    --accent-foreground: 25 15% 15%;
 
-    --destructive: 0 84% 60%;
+    --destructive: 0 65% 55%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 20 15% 20%;
-    --input: 20 15% 20%;
-    --ring: 12 90% 52%;
+    --border: 25 20% 25%;
+    --input: 25 20% 25%;
+    --ring: 15 70% 48%;
 
     --radius: 0px;
 
@@ -46,22 +46,22 @@
     --sidebar-ring: 217.2 91.2% 59.8%;
 
     /* Custom tokens */
-    --brutal-shadow: 4px 4px 0px hsl(20 10% 10%);
-    --brutal-shadow-lg: 8px 8px 0px hsl(20 10% 10%);
-    --brutal-shadow-accent: 4px 4px 0px hsl(12 90% 52%);
-    --brutal-border: 3px solid hsl(20 10% 10%);
-    --brutal-border-thick: 4px solid hsl(20 10% 10%);
+    --brutal-shadow: 3px 3px 0px hsl(25 15% 15%);
+    --brutal-shadow-lg: 6px 6px 0px hsl(25 15% 15%);
+    --brutal-shadow-accent: 3px 3px 0px hsl(15 70% 48%);
+    --brutal-border: 2px solid hsl(25 15% 15%);
+    --brutal-border-thick: 3px solid hsl(25 15% 15%);
 
-    --warm: 28 60% 50%;
+    --warm: 22 55% 52%;
     --warm-foreground: 0 0% 100%;
-    --deep: 350 45% 35%;
+    --deep: 345 35% 38%;
     --deep-foreground: 0 0% 100%;
-    --earth: 25 30% 25%;
-    --earth-foreground: 40 20% 97%;
-    --sage: 150 20% 45%;
+    --earth: 28 25% 30%;
+    --earth-foreground: 30 25% 96%;
+    --sage: 155 25% 42%;
     --sage-foreground: 0 0% 100%;
-    --gold: 42 90% 55%;
-    --gold-foreground: 20 10% 10%;
+    --gold: 40 70% 55%;
+    --gold-foreground: 25 15% 15%;
   }
 }
 
@@ -74,29 +74,31 @@
     font-feature-settings: "kern" 1, "liga" 1;
   }
   h1, h2, h3, h4, h5 {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Space Grotesk', 'Inter', system-ui, sans-serif;
+    font-weight: 700;
   }
 }
 
 @layer components {
   .brutal-card {
-    @apply bg-card border-[3px] border-foreground;
+    @apply bg-card border-2 border-foreground;
     box-shadow: var(--brutal-shadow);
   }
   .brutal-card-lg {
-    @apply bg-card border-[4px] border-foreground;
+    @apply bg-card border-[3px] border-foreground;
     box-shadow: var(--brutal-shadow-lg);
   }
   .brutal-btn {
-    @apply px-8 py-4 font-bold text-lg uppercase tracking-wider border-[3px] border-foreground transition-all duration-150;
+    @apply px-8 py-4 font-bold text-lg uppercase tracking-wider border-2 border-foreground transition-all duration-150;
     box-shadow: var(--brutal-shadow);
+    font-family: 'Space Grotesk', 'Inter', sans-serif;
   }
   .brutal-btn:hover {
     transform: translate(2px, 2px);
-    box-shadow: 2px 2px 0px hsl(20 10% 10%);
+    box-shadow: 1px 1px 0px hsl(25 15% 15%);
   }
   .brutal-btn:active {
-    transform: translate(4px, 4px);
+    transform: translate(3px, 3px);
     box-shadow: none;
   }
   .brutal-btn-primary {
@@ -113,21 +115,22 @@
   }
   .heading-xl {
     @apply text-4xl md:text-6xl lg:text-7xl font-black leading-[0.9] tracking-tight;
-    font-family: 'Playfair Display', serif;
+    font-family: 'Space Grotesk', 'Inter', sans-serif;
   }
   .heading-lg {
     @apply text-3xl md:text-5xl lg:text-6xl font-black leading-[0.95];
-    font-family: 'Playfair Display', serif;
+    font-family: 'Space Grotesk', 'Inter', sans-serif;
   }
   .heading-md {
     @apply text-2xl md:text-3xl lg:text-4xl font-bold leading-tight;
-    font-family: 'Playfair Display', serif;
+    font-family: 'Space Grotesk', 'Inter', sans-serif;
   }
   .body-lg {
     @apply text-lg md:text-xl leading-relaxed;
   }
   .tag-brutal {
     @apply inline-block px-3 py-1 text-xs font-bold uppercase tracking-widest border-2 border-foreground bg-accent text-accent-foreground;
+    font-family: 'Space Grotesk', 'Inter', sans-serif;
   }
 }
 

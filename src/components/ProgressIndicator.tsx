@@ -8,7 +8,7 @@ interface ProgressIndicatorProps {
 const ProgressIndicator = ({ currentStep, steps }: ProgressIndicatorProps) => {
   return (
     <motion.div
-      className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur border-b-[3px] border-foreground"
+      className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur border-b-2 border-foreground"
       initial={{ y: -60 }}
       animate={{ y: 0 }}
       transition={{ delay: 1 }}

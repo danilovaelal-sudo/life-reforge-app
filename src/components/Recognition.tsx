@@ -1,12 +1,13 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
+import { Minus, Square, Heart, Eye, MapPin } from "lucide-react";
 
 const painPoints = [
-  { id: 1, text: "Я устала", subtext: "Устала бороться, тянуть, держать. Устала быть сильной для всех, кроме себя.", icon: "◼" },
-  { id: 2, text: "Я не знаю, кто я", subtext: "Все роли, которые я играла, больше не подходят. А новых — нет.", icon: "◻" },
-  { id: 3, text: "Я много отдала другим", subtext: "Годы заботы о других — и пустота внутри. Где я в этом уравнении?", icon: "◼" },
-  { id: 4, text: "Я потеряла связь с собой", subtext: "Я помню, как чувствовала себя живой. Но не помню, когда это было.", icon: "◻" },
-  { id: 5, text: "Я не верю, что у меня ещё есть путь", subtext: "Кажется, что лучшее позади. Что моё время прошло. Что поздно.", icon: "◼" },
+  { id: 1, text: "Я устала", subtext: "Устала бороться, тянуть, держать. Устала быть сильной для всех, кроме себя.", Icon: Minus },
+  { id: 2, text: "Я не знаю, кто я", subtext: "Все роли, которые я играла, больше не подходят. А новых — нет.", Icon: Square },
+  { id: 3, text: "Я много отдала другим", subtext: "Годы заботы о других — и пустота внутри. Где я в этом уравнении?", Icon: Heart },
+  { id: 4, text: "Я потеряла связь с собой", subtext: "Я помню, как чувствовала себя живой. Но не помню, когда это было.", Icon: Eye },
+  { id: 5, text: "Я не верю, что у меня ещё есть путь", subtext: "Кажется, что лучшее позади. Что моё время прошло. Что поздно.", Icon: MapPin },
 ];
 
 const Recognition = () => {
@@ -25,7 +26,7 @@ const Recognition = () => {
           <h2 className="heading-lg text-secondary-foreground mt-4">
             Если хотя бы одно
             <br />
-            <span className="italic text-accent">откликается</span> —
+            <span className="text-accent">откликается</span> —
             <br />
             ты в правильном месте
           </h2>
@@ -48,9 +49,9 @@ const Recognition = () => {
             >
               <div className="p-6 md:p-8">
                 <div className="flex items-start gap-4">
-                  <span className="text-3xl mt-1">{point.icon}</span>
+                  <point.Icon className="w-7 h-7 mt-1 shrink-0" />
                   <div>
-                    <h3 className="text-2xl md:text-3xl font-black font-serif">{point.text}</h3>
+                    <h3 className="text-2xl md:text-3xl font-black font-heading">{point.text}</h3>
                     <motion.p
                       className="mt-2 text-lg opacity-80"
                       initial={false}
@@ -73,7 +74,7 @@ const Recognition = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <p className="text-xl md:text-2xl font-bold text-accent-foreground font-serif italic">
+          <p className="text-xl md:text-2xl font-bold text-accent-foreground font-heading">
             «Ты не сломана. Ты в процессе пересборки.
             <br />
             И это — самая честная работа в жизни.»

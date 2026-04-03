@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
+import { Check } from "lucide-react";
 import { thirtyDayPlan } from "@/data/plan";
 
 interface ThirtyDayPlanProps {
@@ -39,14 +40,13 @@ const ThirtyDayPlan = ({ onSubscribe }: ThirtyDayPlanProps) => {
           <h2 className="heading-lg">
             Твой персональный
             <br />
-            <span className="italic text-primary">маршрут на 30 дней</span>
+            <span className="text-primary">маршрут на 30 дней</span>
           </h2>
           <p className="body-lg text-muted-foreground mt-4 max-w-2xl">
             Не марафон. Не вызов. Мягкий, но собранный путь возвращения к&nbsp;себе.
           </p>
         </motion.div>
 
-        {/* Week tabs */}
         <div className="flex flex-wrap gap-2 mb-8">
           {thirtyDayPlan.map((week, i) => (
             <button
@@ -61,7 +61,6 @@ const ThirtyDayPlan = ({ onSubscribe }: ThirtyDayPlanProps) => {
           ))}
         </div>
 
-        {/* Active week */}
         <motion.div
           key={openWeek}
           initial={{ opacity: 0, y: 20 }}
@@ -70,7 +69,7 @@ const ThirtyDayPlan = ({ onSubscribe }: ThirtyDayPlanProps) => {
         >
           <div className={`p-6 md:p-8 ${weekColors[openWeek]}`}>
             <h3 className="heading-md">{thirtyDayPlan[openWeek].title}</h3>
-            <p className="mt-1 text-lg italic opacity-80">{thirtyDayPlan[openWeek].subtitle}</p>
+            <p className="mt-1 text-lg opacity-80">{thirtyDayPlan[openWeek].subtitle}</p>
             <p className="mt-2 text-sm opacity-70">{thirtyDayPlan[openWeek].theme}</p>
           </div>
 
@@ -87,13 +86,13 @@ const ThirtyDayPlan = ({ onSubscribe }: ThirtyDayPlanProps) => {
                   <div className={`w-8 h-8 border-2 border-foreground flex items-center justify-center shrink-0 text-sm font-black ${
                     completedDays.has(day.day) ? "bg-primary text-primary-foreground" : ""
                   }`}>
-                    {completedDays.has(day.day) ? "✓" : day.day}
+                    {completedDays.has(day.day) ? <Check size={16} /> : day.day}
                   </div>
                   <div className="flex-1">
-                    <h4 className="font-black font-serif">{day.title}</h4>
+                    <h4 className="font-black font-heading">{day.title}</h4>
                     <p className="text-sm text-muted-foreground mt-1">{day.action}</p>
                     {day.prompt && (
-                      <p className="text-xs italic text-primary mt-2 border-l-2 border-primary pl-2">
+                      <p className="text-xs text-primary mt-2 border-l-2 border-primary pl-2">
                         Промпт для журнала: «{day.prompt}»
                       </p>
                     )}
@@ -109,7 +108,6 @@ const ThirtyDayPlan = ({ onSubscribe }: ThirtyDayPlanProps) => {
           </div>
         </motion.div>
 
-        {/* CTA */}
         <motion.div
           className="mt-8 brutal-card bg-primary text-primary-foreground p-8 text-center"
           initial={{ opacity: 0, y: 20 }}

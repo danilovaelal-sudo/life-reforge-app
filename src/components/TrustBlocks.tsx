@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
+import { Plus, Minus } from "lucide-react";
 
 const testimonials = [
   { name: "Марина, 43 года", text: "Я думала, что после развода жизнь закончилась. После работы с Еленой я впервые за 5 лет почувствовала, что у меня есть направление." },
@@ -32,7 +33,7 @@ const TrustBlocks = () => {
           <h2 className="heading-md mb-6">
             Это не про мотивацию.
             <br />
-            Это про <span className="italic text-accent">возвращение к&nbsp;себе</span>.
+            Это про <span className="text-accent">возвращение к&nbsp;себе</span>.
           </h2>
           <div className="max-w-2xl mx-auto space-y-4 text-lg text-muted-foreground">
             <p>Мы не обещаем, что будет легко. Мы обещаем, что будет честно.</p>
@@ -48,7 +49,7 @@ const TrustBlocks = () => {
             <h2 className="heading-lg mb-8">
               Что говорят
               <br />
-              <span className="italic text-primary">те, кто прошёл</span>
+              <span className="text-primary">те, кто прошёл</span>
             </h2>
           </motion.div>
 
@@ -62,7 +63,7 @@ const TrustBlocks = () => {
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
               >
-                <p className="text-base italic mb-4">«{t.text}»</p>
+                <p className="text-base mb-4">«{t.text}»</p>
                 <p className="text-sm font-bold text-primary">{t.name}</p>
               </motion.div>
             ))}
@@ -88,8 +89,10 @@ const TrustBlocks = () => {
                 onClick={() => setOpenFaq(openFaq === i ? null : i)}
               >
                 <div className="p-5 flex items-center justify-between">
-                  <h4 className="font-bold text-lg font-serif">{item.q}</h4>
-                  <span className="text-xl font-black shrink-0 ml-4">{openFaq === i ? "−" : "+"}</span>
+                  <h4 className="font-bold text-lg font-heading">{item.q}</h4>
+                  <span className="shrink-0 ml-4">
+                    {openFaq === i ? <Minus size={20} /> : <Plus size={20} />}
+                  </span>
                 </div>
                 <motion.div
                   initial={false}

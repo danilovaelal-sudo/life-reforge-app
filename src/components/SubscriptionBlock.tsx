@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { z } from "zod";
+import { Sparkles } from "lucide-react";
 
 const emailSchema = z.string().trim().email({ message: "Введи корректный email" }).max(255);
 
@@ -25,7 +26,6 @@ const SubscriptionBlock = () => {
     }
 
     setStatus("loading");
-    // Simulate submission
     setTimeout(() => {
       setStatus("success");
     }, 1500);
@@ -36,7 +36,7 @@ const SubscriptionBlock = () => {
       <section className="section-padding bg-accent" id="subscribe">
         <div className="max-w-2xl mx-auto text-center">
           <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }}>
-            <span className="text-5xl mb-4 block">✦</span>
+            <Sparkles className="w-12 h-12 mx-auto mb-4 text-accent-foreground" />
             <h2 className="heading-md text-accent-foreground mb-4">Ты на пути</h2>
             <p className="body-lg text-accent-foreground/80">
               Проверь почту. Первое письмо уже ждёт тебя. Оно — начало нового маршрута.
@@ -60,7 +60,7 @@ const SubscriptionBlock = () => {
           <h2 className="heading-lg text-accent-foreground">
             7 писем
             <br />
-            <span className="italic">возвращения к&nbsp;себе</span>
+            возвращения к&nbsp;себе
           </h2>
           <p className="body-lg text-accent-foreground/80 mt-4 max-w-lg mx-auto">
             Не рассылка. Не новости. Семь писем, каждое из&nbsp;которых — шаг глубже. Мягко, бережно, по-настоящему.
@@ -85,7 +85,7 @@ const SubscriptionBlock = () => {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="elena@example.com"
-                className="w-full p-4 border-[3px] border-foreground bg-card text-foreground text-lg focus:outline-none focus:ring-2 focus:ring-primary"
+                className="w-full p-4 border-2 border-foreground bg-card text-foreground text-lg focus:outline-none focus:ring-2 focus:ring-primary"
                 required
               />
             </div>

@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { z } from "zod";
+import { Star, ArrowRight } from "lucide-react";
 
 const formSchema = z.object({
   name: z.string().trim().min(2, "Введи имя").max(100),
@@ -35,7 +36,7 @@ const PersonalWorkCTA = () => {
       <section className="section-padding bg-secondary text-secondary-foreground" id="personal-work">
         <div className="max-w-2xl mx-auto text-center">
           <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }}>
-            <span className="text-5xl mb-4 block">🌟</span>
+            <Star className="w-12 h-12 mx-auto mb-4 text-accent" />
             <h2 className="heading-md text-secondary-foreground mb-4">Заявка отправлена</h2>
             <p className="body-lg text-muted-foreground">
               Елена свяжется с тобой в&nbsp;ближайшее время. Это уже шаг. Важный и смелый.
@@ -50,7 +51,6 @@ const PersonalWorkCTA = () => {
     <section className="section-padding bg-secondary text-secondary-foreground" id="personal-work">
       <div className="max-w-4xl mx-auto">
         <div className="grid md:grid-cols-2 gap-8">
-          {/* Left: messaging */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -62,7 +62,7 @@ const PersonalWorkCTA = () => {
               <br />
               что пришло
               <br />
-              <span className="italic text-accent">время</span>
+              <span className="text-accent">время</span>
             </h2>
 
             <div className="space-y-4">
@@ -72,20 +72,19 @@ const PersonalWorkCTA = () => {
                 "Если тебе нужен проводник в новую сборку себя",
               ].map((text, i) => (
                 <div key={i} className="flex items-start gap-3">
-                  <span className="text-primary text-xl shrink-0">→</span>
+                  <ArrowRight className="text-primary shrink-0 mt-1" size={20} />
                   <p className="text-lg">{text}</p>
                 </div>
               ))}
             </div>
 
             <div className="mt-8 brutal-card bg-card p-6">
-              <p className="text-sm text-muted-foreground italic">
+              <p className="text-sm text-muted-foreground">
                 Это не массовый курс. Это индивидуальная работа с&nbsp;Еленой — глубокая, бережная, трансформационная. Количество мест ограничено.
               </p>
             </div>
           </motion.div>
 
-          {/* Right: form */}
           <motion.form
             onSubmit={handleSubmit}
             className="brutal-card-lg bg-card p-8"
@@ -101,7 +100,7 @@ const PersonalWorkCTA = () => {
                 <input
                   value={form.name}
                   onChange={(e) => setForm({ ...form, name: e.target.value })}
-                  className="w-full p-3 border-[3px] border-foreground bg-background focus:outline-none focus:ring-2 focus:ring-primary"
+                  className="w-full p-3 border-2 border-foreground bg-background focus:outline-none focus:ring-2 focus:ring-primary"
                   placeholder="Как тебя зовут?"
                 />
                 {errors.name && <p className="text-destructive text-xs mt-1 font-bold">{errors.name}</p>}
@@ -113,7 +112,7 @@ const PersonalWorkCTA = () => {
                   type="email"
                   value={form.email}
                   onChange={(e) => setForm({ ...form, email: e.target.value })}
-                  className="w-full p-3 border-[3px] border-foreground bg-background focus:outline-none focus:ring-2 focus:ring-primary"
+                  className="w-full p-3 border-2 border-foreground bg-background focus:outline-none focus:ring-2 focus:ring-primary"
                   placeholder="elena@example.com"
                 />
                 {errors.email && <p className="text-destructive text-xs mt-1 font-bold">{errors.email}</p>}
@@ -125,7 +124,7 @@ const PersonalWorkCTA = () => {
                   value={form.message}
                   onChange={(e) => setForm({ ...form, message: e.target.value })}
                   rows={3}
-                  className="w-full p-3 border-[3px] border-foreground bg-background focus:outline-none focus:ring-2 focus:ring-primary resize-none"
+                  className="w-full p-3 border-2 border-foreground bg-background focus:outline-none focus:ring-2 focus:ring-primary resize-none"
                   placeholder="Расскажи коротко о себе и своём запросе"
                 />
               </div>

@@ -49,7 +49,7 @@ const ArchetypeResult = ({ primary, secondary }: ArchetypeResultProps) => {
           <div className="grid md:grid-cols-2 gap-4">
             {[
               { label: "Главная сила", value: primary.mainStrength, color: "bg-sage" },
-              { label: "Тень", value: primary.shadow, color: "bg-earth" },
+              { label: "Тень", value: primary.shadow, color: "bg-sage" },
               { label: "Текущий вызов", value: primary.currentChallenge, color: "bg-primary" },
               { label: "Потенциал", value: primary.potential, color: "bg-gold" },
             ].map((item) => (

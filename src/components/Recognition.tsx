@@ -1,13 +1,13 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
-import { Minus, Square, Heart, Eye, MapPin } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 
 const painPoints = [
-  { id: 1, text: "Я устала", subtext: "Устала бороться, тянуть, держать. Устала быть сильной для всех, кроме себя.", Icon: Minus },
-  { id: 2, text: "Я не знаю, кто я", subtext: "Все роли, которые я играла, больше не подходят. А новых — нет.", Icon: Square },
-  { id: 3, text: "Я много отдала другим", subtext: "Годы заботы о других — и пустота внутри. Где я в этом уравнении?", Icon: Heart },
-  { id: 4, text: "Я потеряла связь с собой", subtext: "Я помню, как чувствовала себя живой. Но не помню, когда это было.", Icon: Eye },
-  { id: 5, text: "Я не верю, что у меня ещё есть путь", subtext: "Кажется, что лучшее позади. Что моё время прошло. Что поздно.", Icon: MapPin },
+  { id: 1, text: "Я устала", subtext: "Устала бороться, тянуть, держать. Устала быть сильной для всех, кроме себя.", Icon: ArrowUpRight },
+  { id: 2, text: "Я не знаю, кто я", subtext: "Все роли, которые я играла, больше не подходят. А новых — нет.", Icon: ArrowUpRight },
+  { id: 3, text: "Я много отдала другим", subtext: "Годы заботы о других — и пустота внутри. Где я в этом уравнении?", Icon: ArrowUpRight },
+  { id: 4, text: "Я потеряла связь с собой", subtext: "Я помню, как чувствовала себя живой. Но не помню, когда это было.", Icon: ArrowUpRight },
+  { id: 5, text: "Я не верю, что у меня ещё есть путь", subtext: "Кажется, что лучшее позади. Что моё время прошло. Что поздно.", Icon: ArrowUpRight },
 ];
 
 const Recognition = () => {

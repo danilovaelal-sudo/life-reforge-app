@@ -57,9 +57,9 @@ const Hero = ({ onStartJourney, onStartDiagnostic }: HeroProps) => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
             >
-              <button onClick={onStartJourney} className="brutal-btn bg-accent text-accent-foreground">
+              <a href="https://vk.com/danilovaelal" target="_blank" rel="noopener noreferrer" className="brutal-btn bg-accent text-accent-foreground inline-block text-center">
                 Начать путь
-              </button>
+              </a>
               <button onClick={onStartDiagnostic} className="brutal-btn bg-secondary text-secondary-foreground">
                 Пройти диагностику
               </button>

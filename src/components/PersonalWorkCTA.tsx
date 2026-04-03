@@ -142,13 +142,14 @@ const PersonalWorkCTA = () => {
               </label>
               {errors.consent && <p className="text-destructive text-xs font-bold">{errors.consent}</p>}
 
-              <button
-                type="submit"
-                disabled={status === "loading"}
-                className="brutal-btn-primary w-full disabled:opacity-50"
+              <a
+                href="https://vk.com/danilovaelal"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="brutal-btn-primary w-full inline-block text-center"
               >
-                {status === "loading" ? "Отправляю..." : "Отправить заявку"}
-              </button>
+                Написать в ВК
+              </a>
             </div>
           </motion.form>
         </div>

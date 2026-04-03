@@ -21,10 +21,10 @@ const AuthorStory = () => {
           className="mb-16"
         >
           <span className="tag-brutal mb-4 inline-block">История</span>
-          <h2 className="heading-lg">
-            Этот метод
+          <h2 className="heading-lg text-primary">
+            Я просто доверяю
             <br />
-            <span className="text-primary">прожит</span>, а не придуман
+            Богу и миру
           </h2>
         </motion.div>
 

@@ -1,6 +1,10 @@
 import { Zap, Heart, Compass, Shield, Waves, Gem, Star, Anchor, Flame, FlaskConical, Sparkles } from "lucide-react";
+import type { LucideProps } from "lucide-react";
+import type { ForwardRefExoticComponent, RefAttributes } from "react";
 
-const iconMap: Record<string, React.ComponentType<{ className?: string; size?: number }>> = {
+type LucideIcon = ForwardRefExoticComponent<Omit<LucideProps, "ref"> & RefAttributes<SVGSVGElement>>;
+
+const iconMap: Record<string, LucideIcon> = {
   energy: Zap,
   heart: Heart,
   compass: Compass,
@@ -21,8 +25,7 @@ interface IconSymbolProps {
 }
 
 const IconSymbol = ({ name, className = "", size = 24 }: IconSymbolProps) => {
-  const Icon = iconMap[name];
-  if (!Icon) return <Star className={className} size={size} />;
+  const Icon = iconMap[name] || Star;
   return <Icon className={className} size={size} />;
 };
 

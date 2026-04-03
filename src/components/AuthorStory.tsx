@@ -76,8 +76,11 @@ const AuthorStory = () => {
           viewport={{ once: true }}
         >
           <div className="grid md:grid-cols-3 gap-8 items-center">
-            <div className="md:col-span-1 flex justify-center">
+            <div className="md:col-span-1 flex flex-col items-center gap-4">
               <img src={bookCover} alt="Книга" className="w-48 md:w-56 brutal-card bg-background p-2 transform rotate-[-3deg]" loading="lazy" />
+              <a href="https://www.litres.ru/book/elena-danilova-32959/pochemu-posle-40-ka-ne-pozdno-i-est-li-zhizn-posle-mo-70398937/" target="_blank" rel="noopener noreferrer" className="brutal-card bg-accent text-accent-foreground px-6 py-3 font-bold text-sm hover:translate-y-[-2px] transition-transform">
+                Читать полностью →
+              </a>
             </div>
             <div className="md:col-span-2 space-y-4">
               <span className="tag-brutal bg-accent text-accent-foreground">Книга</span>

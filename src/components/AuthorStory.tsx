@@ -45,7 +45,7 @@ const AuthorStory = () => {
             </div>
             <div className="mt-4 brutal-card p-4 bg-accent">
               <p className="font-bold text-lg text-accent-foreground">Елена Данилова</p>
-              <p className="text-sm text-accent-foreground/80">Автор · Проводник · Психолог жизненных переходов</p>
+              <p className="text-sm text-accent-foreground/80">Писатель. Видеограф. Мать 4 после 40. Человек, который верит, что все возможно.</p>
             </div>
           </motion.div>
 

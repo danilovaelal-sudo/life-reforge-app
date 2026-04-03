@@ -105,7 +105,7 @@ const Index = () => {
       {/* Footer */}
       <footer className="bg-secondary text-secondary-foreground py-12 px-4 border-t-[3px] border-foreground">
         <div className="max-w-5xl mx-auto text-center space-y-4">
-          <p className="font-black font-heading text-2xl">После 40 не поздно</p>
+          <p className="font-black font-heading text-7xl">После 40 не поздно</p>
           <p className="text-sm text-muted-foreground">© {new Date().getFullYear()} Елена Данилова. Все права защищены.</p>
           <p className="text-xs text-muted-foreground">Трансформационный опыт для женщин в поиске нового пути</p>
         </div>

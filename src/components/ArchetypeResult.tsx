@@ -73,7 +73,7 @@ const ArchetypeResult = ({ primary, secondary }: ArchetypeResultProps) => {
               {primary.firstSteps.map((step, i) => (
                 <div key={i} className="flex items-start gap-3 brutal-card p-4 bg-card">
                   <span className="font-black text-primary text-lg shrink-0">{i + 1}.</span>
-                  <p>{step}</p>
+                  <p className="text-muted-foreground">{step}</p>
                 </div>
               ))}
             </div>

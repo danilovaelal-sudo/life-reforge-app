@@ -62,7 +62,7 @@ const AuthorStory = () => {
                 <div>
                   <span className="tag-brutal text-sm">{String(i + 1).padStart(2, "0")}</span>
                   <h3 className="text-xl font-black font-heading mt-2">{step.label}</h3>
-                  <p className="mt-1 text-muted-foreground">{step.text}</p>
+                  <p className="mt-1 text-muted-foreground text-lg">{step.text}</p>
                 </div>
               </motion.div>
             ))}

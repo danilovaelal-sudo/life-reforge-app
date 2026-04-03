@@ -80,7 +80,7 @@ const ArchetypeResult = ({ primary, secondary }: ArchetypeResultProps) => {
           </div>
 
           <div className="mt-6 brutal-card p-4 bg-muted">
-            <p className="text-sm">
+            <p className="text-sm text-primary">
               <strong>Твой ритм жизни:</strong> {primary.lifeRhythm}
             </p>
           </div>

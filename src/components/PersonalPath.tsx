@@ -72,7 +72,7 @@ const PersonalPath = () => {
           viewport={{ once: true }}
           className="mb-12"
         >
-          <span className="tag-brutal mb-4 inline-block">Карта пути</span>
+          <span className="tag-brutal mb-4 inline-block border-secondary-foreground border">Карта пути</span>
           <h2 className="heading-lg">
             Твой персональный
             <br />

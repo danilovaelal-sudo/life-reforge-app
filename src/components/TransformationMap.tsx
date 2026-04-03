@@ -175,7 +175,7 @@ const TransformationMap = ({ scores }: TransformationMapProps) => {
                   className="flex items-center gap-3 p-3 border-2 border-foreground bg-background"
                 >
                   <div className={`w-2 h-2 ${stages[activeStage].color}`} />
-                  <span className="font-medium">{marker}</span>
+                  <span className="font-medium text-muted-foreground">{marker}</span>
                 </motion.div>
               ))}
             </div>

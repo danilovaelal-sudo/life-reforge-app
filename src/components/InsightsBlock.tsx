@@ -87,7 +87,7 @@ const InsightsBlock = ({ scores }: InsightsBlockProps) => {
               <span className={`tag-brutal text-[10px] ${insight.color} text-primary-foreground`}>
                 {insight.label}
               </span>
-              <p className="mt-4 text-base leading-relaxed">{insight.text}</p>
+              <p className="mt-4 text-base leading-relaxed text-muted-foreground">{insight.text}</p>
             </motion.div>
           ))}
         </div>

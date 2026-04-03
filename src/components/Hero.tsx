@@ -59,7 +59,7 @@ const Hero = ({ onStartJourney, onStartDiagnostic }: HeroProps) => {
             >
               <a href="https://vk.com/danilovaelal" target="_blank" rel="noopener noreferrer" className="brutal-btn bg-accent text-accent-foreground inline-block text-center">
                 Начать путь
-              </button>
+              </a>
               <button onClick={onStartDiagnostic} className="brutal-btn bg-secondary text-secondary-foreground">
                 Пройти диагностику
               </button>

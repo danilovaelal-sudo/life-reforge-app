@@ -57,7 +57,7 @@ const ArchetypeResult = ({ primary, secondary }: ArchetypeResultProps) => {
                 <span className={`tag-brutal text-[10px] ${item.color} text-primary-foreground`} style={{ borderColor: "currentColor" }}>
                   {item.label}
                 </span>
-                <p className="mt-3 text-sm">{item.value}</p>
+                <p className="mt-3 text-sm text-muted-foreground">{item.value}</p>
               </div>
             ))}
           </div>

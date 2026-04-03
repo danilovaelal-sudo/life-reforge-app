@@ -88,6 +88,9 @@ const Hero = ({ onStartJourney, onStartDiagnostic }: HeroProps) => {
                 className="w-72 h-auto"
                 loading="eager"
               />
+              <a href="https://www.litres.ru/book/elena-danilova-32959/pochemu-posle-40-ka-ne-pozdno-i-est-li-zhizn-posle-mo-70398937/" target="_blank" rel="noopener noreferrer" className="block mt-3 text-center brutal-card bg-accent text-accent-foreground px-4 py-2 font-bold text-sm hover:translate-y-[-2px] transition-transform">
+                Читать полностью →
+              </a>
             </div>
             <div className="absolute -bottom-6 -left-6 brutal-card p-4 bg-accent max-w-[220px] transform rotate-[-2deg]">
               <p className="text-sm font-bold text-accent-foreground">

@@ -39,7 +39,7 @@ const ArchetypeResult = ({ primary, secondary }: ArchetypeResultProps) => {
               <span className="tag-brutal text-[10px]" style={{ backgroundColor: primary.color, color: "#fff", borderColor: primary.color }}>
                 Основной архетип
               </span>
-              <h3 className="heading-md mt-2">{primary.name}</h3>
+              <h3 className="heading-md mt-2 text-accent">{primary.name}</h3>
               <p className="text-muted-foreground text-lg">{primary.subtitle}</p>
             </div>
           </div>

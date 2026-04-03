@@ -162,7 +162,7 @@ const TransformationMap = ({ scores }: TransformationMapProps) => {
           </div>
 
           <div className="p-6 md:p-8 bg-card">
-            <p className="body-lg mb-6">{stages[activeStage].description}</p>
+            <p className="body-lg mb-6 text-red-900">{stages[activeStage].description}</p>
 
             <div className="space-y-3">
               <p className="text-xs font-bold uppercase tracking-wider text-muted-foreground">Ключевые маркеры этого этапа</p>

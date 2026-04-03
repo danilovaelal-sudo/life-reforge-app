@@ -17,7 +17,7 @@ const InsightsBlock = ({ scores }: InsightsBlockProps) => {
       text: energy > 8
         ? "Ты переросла привычку выживать. Твоя энергия говорит о готовности не просто терпеть, а жить по-настоящему."
         : "Ты переросла необходимость быть сильной для всех. Пришло время направить силу на себя.",
-      color: "bg-sage",
+      color: "bg-slate-400",
     },
     {
       label: "Что ты несёшь, но не признаёшь как силу",
@@ -87,7 +87,7 @@ const InsightsBlock = ({ scores }: InsightsBlockProps) => {
               <span className={`tag-brutal text-[10px] ${insight.color} text-primary-foreground`}>
                 {insight.label}
               </span>
-              <p className="mt-4 text-base leading-relaxed">{insight.text}</p>
+              <p className="mt-4 text-base leading-relaxed text-muted-foreground">{insight.text}</p>
             </motion.div>
           ))}
         </div>

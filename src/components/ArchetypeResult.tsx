@@ -39,17 +39,17 @@ const ArchetypeResult = ({ primary, secondary }: ArchetypeResultProps) => {
               <span className="tag-brutal text-[10px]" style={{ backgroundColor: primary.color, color: "#fff", borderColor: primary.color }}>
                 Основной архетип
               </span>
-              <h3 className="heading-md mt-2">{primary.name}</h3>
+              <h3 className="heading-md mt-2 text-accent">{primary.name}</h3>
               <p className="text-muted-foreground text-lg">{primary.subtitle}</p>
             </div>
           </div>
 
-          <p className="body-lg mb-8">{primary.description}</p>
+          <p className="body-lg mb-8 text-accent">{primary.description}</p>
 
           <div className="grid md:grid-cols-2 gap-4">
             {[
               { label: "Главная сила", value: primary.mainStrength, color: "bg-sage" },
-              { label: "Тень", value: primary.shadow, color: "bg-earth" },
+              { label: "Тень", value: primary.shadow, color: "bg-sage" },
               { label: "Текущий вызов", value: primary.currentChallenge, color: "bg-primary" },
               { label: "Потенциал", value: primary.potential, color: "bg-gold" },
             ].map((item) => (
@@ -57,7 +57,7 @@ const ArchetypeResult = ({ primary, secondary }: ArchetypeResultProps) => {
                 <span className={`tag-brutal text-[10px] ${item.color} text-primary-foreground`} style={{ borderColor: "currentColor" }}>
                   {item.label}
                 </span>
-                <p className="mt-3 text-sm">{item.value}</p>
+                <p className="mt-3 text-sm text-muted-foreground">{item.value}</p>
               </div>
             ))}
           </div>
@@ -68,19 +68,19 @@ const ArchetypeResult = ({ primary, secondary }: ArchetypeResultProps) => {
           </div>
 
           <div className="mt-6">
-            <h4 className="font-black text-lg font-heading mb-4">Первые шаги</h4>
+            <h4 className="font-black text-lg font-heading mb-4 text-muted-foreground">Первые шаги</h4>
             <div className="space-y-2">
               {primary.firstSteps.map((step, i) => (
                 <div key={i} className="flex items-start gap-3 brutal-card p-4 bg-card">
                   <span className="font-black text-primary text-lg shrink-0">{i + 1}.</span>
-                  <p>{step}</p>
+                  <p className="text-muted-foreground">{step}</p>
                 </div>
               ))}
             </div>
           </div>
 
           <div className="mt-6 brutal-card p-4 bg-muted">
-            <p className="text-sm">
+            <p className="text-sm text-primary">
               <strong>Твой ритм жизни:</strong> {primary.lifeRhythm}
             </p>
           </div>

@@ -44,7 +44,7 @@ const ArchetypeResult = ({ primary, secondary }: ArchetypeResultProps) => {
             </div>
           </div>
 
-          <p className="body-lg mb-8">{primary.description}</p>
+          <p className="body-lg mb-8 text-accent">{primary.description}</p>
 
           <div className="grid md:grid-cols-2 gap-4">
             {[

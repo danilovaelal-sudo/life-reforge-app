@@ -45,7 +45,7 @@ const AuthorStory = () => {
             </div>
             <div className="mt-4 brutal-card p-4 bg-accent">
               <p className="font-bold text-lg text-accent-foreground">Елена Данилова</p>
-              <p className="text-sm text-accent-foreground/80">Автор · Проводник · Психолог жизненных переходов</p>
+              <p className="text-sm text-accent-foreground/80">Писатель. Видеограф. Мать 4 после 40. Человек, который верит, что все возможно.</p>
             </div>
           </motion.div>
 
@@ -60,7 +60,7 @@ const AuthorStory = () => {
                 className="flex gap-4 border-l-[3px] border-foreground pl-6 py-6"
               >
                 <div>
-                  <span className="tag-brutal text-[10px]">{String(i + 1).padStart(2, "0")}</span>
+                  <span className="tag-brutal text-sm">{String(i + 1).padStart(2, "0")}</span>
                   <h3 className="text-xl font-black font-heading mt-2">{step.label}</h3>
                   <p className="mt-1 text-muted-foreground">{step.text}</p>
                 </div>

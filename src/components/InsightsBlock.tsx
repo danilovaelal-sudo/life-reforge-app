@@ -67,7 +67,7 @@ const InsightsBlock = ({ scores }: InsightsBlockProps) => {
           <h2 className="heading-lg">
             Что ты уже
             <br />
-            <span className="italic text-accent">знаешь о себе</span>
+            <span className="text-accent">знаешь о себе</span>
           </h2>
           <p className="body-lg text-muted-foreground mt-4 max-w-2xl">
             Эти слова — зеркало. Они отражают то, что проявилось в&nbsp;твоих ответах.
@@ -98,7 +98,7 @@ const InsightsBlock = ({ scores }: InsightsBlockProps) => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <p className="heading-md text-accent-foreground italic">
+          <p className="heading-md text-accent-foreground">
             «Ты не сломана. Ты в точке сборки.
             <br />И это — самое сильное место, в&nbsp;котором ты когда-либо была.»
           </p>

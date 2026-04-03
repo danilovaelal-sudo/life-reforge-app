@@ -24,12 +24,11 @@ const AuthorStory = () => {
           <h2 className="heading-lg">
             Этот метод
             <br />
-            <span className="italic text-primary">прожит</span>, а не придуман
+            <span className="text-primary">прожит</span>, а не придуман
           </h2>
         </motion.div>
 
         <div className="grid md:grid-cols-5 gap-8 mb-16">
-          {/* Author photo */}
           <motion.div
             className="md:col-span-2"
             initial={{ opacity: 0, x: -30 }}
@@ -50,7 +49,6 @@ const AuthorStory = () => {
             </div>
           </motion.div>
 
-          {/* Story timeline */}
           <div className="md:col-span-3 space-y-0">
             {storySteps.map((step, i) => (
               <motion.div
@@ -59,11 +57,11 @@ const AuthorStory = () => {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.15 }}
-                className="flex gap-4 border-l-4 border-foreground pl-6 py-6"
+                className="flex gap-4 border-l-[3px] border-foreground pl-6 py-6"
               >
                 <div>
                   <span className="tag-brutal text-[10px]">{String(i + 1).padStart(2, "0")}</span>
-                  <h3 className="text-xl font-black font-serif mt-2">{step.label}</h3>
+                  <h3 className="text-xl font-black font-heading mt-2">{step.label}</h3>
                   <p className="mt-1 text-muted-foreground">{step.text}</p>
                 </div>
               </motion.div>
@@ -71,7 +69,6 @@ const AuthorStory = () => {
           </div>
         </div>
 
-        {/* Book block */}
         <motion.div
           className="brutal-card-lg bg-primary text-primary-foreground p-8 md:p-12"
           initial={{ opacity: 0, y: 30 }}
@@ -91,7 +88,7 @@ const AuthorStory = () => {
                 Эта книга — не мотивация и не инструкция. Это честный путь женщины через разрушение к&nbsp;новой сборке.
                 Каждая глава — прожитый опыт, ставший картой для других.
               </p>
-              <blockquote className="border-l-4 border-accent pl-4 italic text-primary-foreground/90">
+              <blockquote className="border-l-[3px] border-accent pl-4 text-primary-foreground/90">
                 «Я написала эту книгу не для того, чтобы вдохновить. А чтобы ты увидела: этот путь — возможен.»
               </blockquote>
             </div>

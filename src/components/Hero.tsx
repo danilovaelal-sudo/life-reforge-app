@@ -9,14 +9,12 @@ interface HeroProps {
 const Hero = ({ onStartJourney, onStartDiagnostic }: HeroProps) => {
   return (
     <section className="min-h-screen relative overflow-hidden bg-primary">
-      {/* Diagonal tear effect */}
       <div className="absolute inset-0">
         <div className="absolute top-0 right-0 w-1/2 h-full bg-background transform origin-top-right skew-x-[-6deg] translate-x-[10%] hidden md:block" />
       </div>
 
       <div className="relative z-10 section-padding min-h-screen flex flex-col justify-center">
         <div className="max-w-7xl mx-auto w-full grid md:grid-cols-2 gap-8 md:gap-16 items-center">
-          {/* Left: Content */}
           <div className="space-y-8">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -39,7 +37,7 @@ const Hero = ({ onStartJourney, onStartDiagnostic }: HeroProps) => {
                 40
               </span>
               <br />
-              <span className="italic">не поздно</span>
+              не поздно
             </motion.h1>
 
             <motion.p
@@ -68,7 +66,7 @@ const Hero = ({ onStartJourney, onStartDiagnostic }: HeroProps) => {
             </motion.div>
 
             <motion.p
-              className="text-sm text-primary-foreground/60 md:text-muted-foreground italic"
+              className="text-sm text-primary-foreground/60 md:text-muted-foreground"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.8 }}
@@ -77,7 +75,6 @@ const Hero = ({ onStartJourney, onStartDiagnostic }: HeroProps) => {
             </motion.p>
           </div>
 
-          {/* Right: Book + visual */}
           <motion.div
             className="relative hidden md:flex justify-center items-center"
             initial={{ opacity: 0, scale: 0.9 }}
@@ -100,9 +97,8 @@ const Hero = ({ onStartJourney, onStartDiagnostic }: HeroProps) => {
           </motion.div>
         </div>
 
-        {/* Bottom marquee-like text */}
         <motion.div
-          className="mt-16 border-t-[3px] border-primary-foreground/20 md:border-foreground/20 pt-6"
+          className="mt-16 border-t-2 border-primary-foreground/20 md:border-foreground/20 pt-6"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1 }}

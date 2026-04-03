@@ -19,7 +19,6 @@ const DiagnosticQuiz = ({ onComplete }: DiagnosticQuizProps) => {
     setSelectedOption(optionIndex);
     const option = question.options[optionIndex];
 
-    // Accumulate scores
     const newScores = { ...answers };
     for (const [key, val] of Object.entries(option.scores)) {
       newScores[key] = (newScores[key] || 0) + val;
@@ -46,7 +45,6 @@ const DiagnosticQuiz = ({ onComplete }: DiagnosticQuizProps) => {
   return (
     <section className="section-padding bg-secondary text-secondary-foreground min-h-screen flex flex-col justify-center">
       <div className="max-w-3xl mx-auto w-full">
-        {/* Header */}
         <div className="mb-8">
           <span className="tag-brutal bg-primary text-primary-foreground mb-4 inline-block">
             Диагностика
@@ -61,8 +59,7 @@ const DiagnosticQuiz = ({ onComplete }: DiagnosticQuizProps) => {
               </button>
             )}
           </div>
-          {/* Progress bar */}
-          <div className="mt-3 h-3 border-[2px] border-foreground bg-card">
+          <div className="mt-3 h-3 border-2 border-foreground bg-card">
             <motion.div
               className="h-full bg-primary"
               initial={{ width: 0 }}
@@ -72,7 +69,6 @@ const DiagnosticQuiz = ({ onComplete }: DiagnosticQuizProps) => {
           </div>
         </div>
 
-        {/* Question */}
         <AnimatePresence mode="wait">
           <motion.div
             key={question.id}
@@ -107,9 +103,8 @@ const DiagnosticQuiz = ({ onComplete }: DiagnosticQuizProps) => {
           </motion.div>
         </AnimatePresence>
 
-        {/* Encouraging note */}
         <motion.p
-          className="mt-8 text-center text-sm text-muted-foreground italic"
+          className="mt-8 text-center text-sm text-muted-foreground"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.5 }}

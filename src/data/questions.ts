@@ -153,12 +153,12 @@ export const diagnosticQuestions: DiagnosticQuestion[] = [
 ];
 
 export const scoreCategories = [
-  { key: "energy", label: "Уровень энергии", icon: "⚡" },
-  { key: "selfContact", label: "Контакт с собой", icon: "🫀" },
-  { key: "clarity", label: "Ясность пути", icon: "🧭" },
-  { key: "selfTrust", label: "Доверие себе", icon: "🛡" },
-  { key: "readiness", label: "Готовность к переменам", icon: "🌊" },
-  { key: "resources", label: "Внутренние ресурсы", icon: "💎" },
-  { key: "purpose", label: "Ощущение предназначения", icon: "🌟" },
-  { key: "stuckness", label: "Застревание в прошлом", icon: "⚓" },
+  { key: "energy", label: "Уровень энергии", icon: "energy" },
+  { key: "selfContact", label: "Контакт с собой", icon: "heart" },
+  { key: "clarity", label: "Ясность пути", icon: "compass" },
+  { key: "selfTrust", label: "Доверие себе", icon: "shield" },
+  { key: "readiness", label: "Готовность к переменам", icon: "waves" },
+  { key: "resources", label: "Внутренние ресурсы", icon: "gem" },
+  { key: "purpose", label: "Ощущение предназначения", icon: "star" },
+  { key: "stuckness", label: "Застревание в прошлом", icon: "anchor" },
 ] as const;

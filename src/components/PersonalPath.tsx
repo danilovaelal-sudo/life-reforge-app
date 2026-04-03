@@ -1,4 +1,6 @@
 import { motion } from "framer-motion";
+import { useState } from "react";
+import { ChevronDown, ChevronUp } from "lucide-react";
 
 interface PathStage {
   title: string;
@@ -59,6 +61,8 @@ const defaultPath: PathStage[] = [
 ];
 
 const PersonalPath = () => {
+  const [expandedIndex, setExpandedIndex] = useState<number | null>(0);
+
   return (
     <section className="section-padding bg-background">
       <div className="max-w-5xl mx-auto">
@@ -72,61 +76,74 @@ const PersonalPath = () => {
           <h2 className="heading-lg">
             Твой персональный
             <br />
-            <span className="italic text-primary">маршрут перехода</span>
+            <span className="text-primary">маршрут перехода</span>
           </h2>
           <p className="body-lg text-muted-foreground mt-4 max-w-2xl">
-            Пять этапов. Каждый — слой, через который проходит женщина на пути к&nbsp;новой себе.
+            Пять этапов. Каждый — слой, через который проходит женщина на пути к&nbsp;новой себе. Нажми на этап, чтобы раскрыть его.
           </p>
         </motion.div>
 
-        <div className="space-y-6">
-          {defaultPath.map((stage, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              className="brutal-card-lg overflow-hidden"
-            >
-              {/* Header */}
-              <div className="bg-primary text-primary-foreground p-6 flex items-center gap-4">
-                <span className="text-4xl font-black font-serif">{i + 1}</span>
-                <h3 className="text-xl md:text-2xl font-black font-serif">{stage.title}</h3>
-              </div>
+        <div className="space-y-4">
+          {defaultPath.map((stage, i) => {
+            const isExpanded = expandedIndex === i;
+            return (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                className="brutal-card-lg overflow-hidden"
+              >
+                <button
+                  onClick={() => setExpandedIndex(isExpanded ? null : i)}
+                  className="w-full bg-primary text-primary-foreground p-6 flex items-center gap-4 text-left hover:opacity-90 transition-opacity"
+                >
+                  <span className="text-3xl font-black font-heading">{i + 1}</span>
+                  <h3 className="text-lg md:text-xl font-black font-heading flex-1">{stage.title}</h3>
+                  {isExpanded ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
+                </button>
 
-              <div className="p-6 grid md:grid-cols-2 gap-4">
-                <div className="space-y-4">
-                  <div>
-                    <p className="text-xs font-bold uppercase tracking-wider text-muted-foreground mb-1">Что происходит внутри</p>
-                    <p>{stage.inside}</p>
+                <motion.div
+                  initial={false}
+                  animate={{ height: isExpanded ? "auto" : 0 }}
+                  transition={{ duration: 0.3 }}
+                  style={{ overflow: "hidden" }}
+                >
+                  <div className="p-6 grid md:grid-cols-2 gap-4">
+                    <div className="space-y-4">
+                      <div>
+                        <p className="text-xs font-bold uppercase tracking-wider text-muted-foreground mb-1">Что происходит внутри</p>
+                        <p>{stage.inside}</p>
+                      </div>
+                      <div>
+                        <p className="text-xs font-bold uppercase tracking-wider text-muted-foreground mb-1">Что мешает</p>
+                        <p className="text-primary font-medium">{stage.obstacle}</p>
+                      </div>
+                      <div>
+                        <p className="text-xs font-bold uppercase tracking-wider text-muted-foreground mb-1">Что поддержит</p>
+                        <p className="text-sage font-medium">{stage.support}</p>
+                      </div>
+                    </div>
+                    <div className="space-y-4">
+                      <div className="brutal-card bg-accent p-4">
+                        <p className="text-xs font-bold uppercase tracking-wider mb-1">Ключевое действие</p>
+                        <p className="font-medium">{stage.action}</p>
+                      </div>
+                      <div className="brutal-card bg-muted p-4">
+                        <p className="text-xs font-bold uppercase tracking-wider mb-1">Практика</p>
+                        <p>{stage.practice}</p>
+                      </div>
+                      <div className="brutal-card p-4 border-l-[3px]" style={{ borderLeftColor: "hsl(var(--primary))" }}>
+                        <p className="text-xs font-bold uppercase tracking-wider mb-1">Фокус внимания</p>
+                        <p className="font-heading text-lg">«{stage.focus}»</p>
+                      </div>
+                    </div>
                   </div>
-                  <div>
-                    <p className="text-xs font-bold uppercase tracking-wider text-muted-foreground mb-1">Что мешает</p>
-                    <p className="text-primary font-medium">{stage.obstacle}</p>
-                  </div>
-                  <div>
-                    <p className="text-xs font-bold uppercase tracking-wider text-muted-foreground mb-1">Что поддержит</p>
-                    <p className="text-sage font-medium">{stage.support}</p>
-                  </div>
-                </div>
-                <div className="space-y-4">
-                  <div className="brutal-card bg-accent p-4">
-                    <p className="text-xs font-bold uppercase tracking-wider mb-1">Ключевое действие</p>
-                    <p className="font-medium">{stage.action}</p>
-                  </div>
-                  <div className="brutal-card bg-muted p-4">
-                    <p className="text-xs font-bold uppercase tracking-wider mb-1">Практика</p>
-                    <p>{stage.practice}</p>
-                  </div>
-                  <div className="brutal-card p-4 border-l-4" style={{ borderLeftColor: "hsl(var(--primary))" }}>
-                    <p className="text-xs font-bold uppercase tracking-wider mb-1">Фокус внимания</p>
-                    <p className="italic font-serif text-lg">«{stage.focus}»</p>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-          ))}
+                </motion.div>
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>

@@ -15,6 +15,7 @@ import TrustBlocks from "@/components/TrustBlocks";
 import ProgressIndicator from "@/components/ProgressIndicator";
 import { TopNav } from "@/components/TopNav";
 import AiAssistant, { AiAssistantFab } from "@/components/AiAssistant";
+import SendResultsEmail from "@/components/SendResultsEmail";
 import { determineArchetype } from "@/data/archetypes";
 import { motion } from "framer-motion";
 
@@ -82,21 +83,22 @@ const Index = () => {
           </div>
         )}
 
-        {phase === "results" && archetype && (
-          <>
-            <div className="pt-12" />
-            <AnalyticsDashboard scores={scores} />
-            <TransformationMap scores={scores} />
-            <ArchetypeResult primary={archetype.primary} secondary={archetype.secondary} />
-            <PersonalPath />
-            <InsightsBlock scores={scores} />
-            <ThirtyDayPlan onSubscribe={() => document.getElementById("subscribe")?.scrollIntoView({ behavior: "smooth" })} />
-            <SubscriptionBlock />
-            <div id="personal-work">
-              <PersonalWorkCTA />
-            </div>
-          </>
-        )}
+            {phase === "results" && archetype && (
+              <>
+                <div className="pt-12" />
+                <AnalyticsDashboard scores={scores} />
+                <TransformationMap scores={scores} />
+                <ArchetypeResult primary={archetype.primary} secondary={archetype.secondary} />
+                <SendResultsEmail scores={scores} primary={archetype.primary} secondary={archetype.secondary} />
+                <PersonalPath />
+                <InsightsBlock scores={scores} />
+                <ThirtyDayPlan onSubscribe={() => document.getElementById("subscribe")?.scrollIntoView({ behavior: "smooth" })} />
+                <SubscriptionBlock />
+                <div id="personal-work">
+                  <PersonalWorkCTA />
+                </div>
+              </>
+            )}
 
         <TrustBlocks />
 

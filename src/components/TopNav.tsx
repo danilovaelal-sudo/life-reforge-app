@@ -1,5 +1,7 @@
-import { Home, FileText, BookOpen, Send, MessageCircle, Menu, X } from "lucide-react";
-import { useState } from "react";
+import { Home, FileText, BookOpen, Send, MessageCircle, Menu, X, User } from "lucide-react";
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { supabase } from "@/integrations/supabase/client";
 
 interface TopNavProps {
   onNavigate: (sectionId: string) => void;
@@ -15,6 +17,18 @@ const menuItems = [
 
 export function TopNav({ onNavigate, onOpenAiAssistant }: TopNavProps) {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      setIsLoggedIn(!!session);
+    });
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((_, session) => {
+      setIsLoggedIn(!!session);
+    });
+    return () => subscription.unsubscribe();
+  }, []);
 
   const handleClick = (sectionId: string) => {
     onNavigate(sectionId);
@@ -47,6 +61,13 @@ export function TopNav({ onNavigate, onOpenAiAssistant }: TopNavProps) {
             <MessageCircle className="h-4 w-4" />
             <span>AI Помощник</span>
           </button>
+          <button
+            onClick={() => navigate(isLoggedIn ? "/cabinet" : "/auth")}
+            className="flex items-center gap-1.5 px-3 py-1.5 text-sm text-secondary-foreground hover:bg-primary/20 rounded transition-colors cursor-pointer ml-1 border border-secondary-foreground/30"
+          >
+            <User className="h-4 w-4" />
+            <span>{isLoggedIn ? "Кабинет" : "Войти"}</span>
+          </button>
         </nav>
 
         {/* Mobile hamburger */}
@@ -77,6 +98,13 @@ export function TopNav({ onNavigate, onOpenAiAssistant }: TopNavProps) {
           >
             <MessageCircle className="h-4 w-4" />
             <span>AI Помощник</span>
+          </button>
+          <button
+            onClick={() => { navigate(isLoggedIn ? "/cabinet" : "/auth"); setMobileOpen(false); }}
+            className="flex items-center gap-2 w-full px-3 py-2 text-sm text-secondary-foreground hover:bg-primary/20 rounded transition-colors cursor-pointer font-bold"
+          >
+            <User className="h-4 w-4" />
+            <span>{isLoggedIn ? "Кабинет" : "Войти"}</span>
           </button>
         </nav>
       )}

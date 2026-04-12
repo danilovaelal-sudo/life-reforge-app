@@ -1,8 +1,10 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import Hero from "@/components/Hero";
 import Recognition from "@/components/Recognition";
 import AuthorStory from "@/components/AuthorStory";
 import DiagnosticQuiz from "@/components/DiagnosticQuiz";
+import { supabase } from "@/integrations/supabase/client";
+import { useToast } from "@/hooks/use-toast";
 import AnalyticsDashboard from "@/components/AnalyticsDashboard";
 import TransformationMap from "@/components/TransformationMap";
 import ArchetypeResult from "@/components/ArchetypeResult";

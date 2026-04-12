@@ -187,10 +187,10 @@ const Cabinet = () => {
                   <div className="flex items-center gap-2">
                     <button
                       onClick={() => setSelectedResult(result)}
-                      className="flex items-center gap-1 text-sm text-primary hover:text-primary/80 cursor-pointer brutal-btn-primary text-xs px-3 py-1"
+                      className="flex items-center gap-1 cursor-pointer brutal-btn-primary text-xs px-3 py-1"
                     >
                       <Eye size={14} />
-                      Открыть
+                      Подробнее
                     </button>
                     <button
                       onClick={() => deleteResult(result.id)}

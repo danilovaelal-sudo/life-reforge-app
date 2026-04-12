@@ -15,6 +15,7 @@ import TrustBlocks from "@/components/TrustBlocks";
 import ProgressIndicator from "@/components/ProgressIndicator";
 import { TopNav } from "@/components/TopNav";
 import AiAssistant, { AiAssistantFab } from "@/components/AiAssistant";
+import SendResultsEmail from "@/components/SendResultsEmail";
 import { determineArchetype } from "@/data/archetypes";
 import { motion } from "framer-motion";
 

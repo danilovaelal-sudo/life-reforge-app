@@ -1,8 +1,10 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import Hero from "@/components/Hero";
 import Recognition from "@/components/Recognition";
 import AuthorStory from "@/components/AuthorStory";
 import DiagnosticQuiz from "@/components/DiagnosticQuiz";
+import { supabase } from "@/integrations/supabase/client";
+import { useToast } from "@/hooks/use-toast";
 import AnalyticsDashboard from "@/components/AnalyticsDashboard";
 import TransformationMap from "@/components/TransformationMap";
 import ArchetypeResult from "@/components/ArchetypeResult";
@@ -29,6 +31,7 @@ const Index = () => {
   const [currentStep, setCurrentStep] = useState(0);
   const [aiOpen, setAiOpen] = useState(false);
   const quizRef = useRef<HTMLDivElement>(null);
+  const { toast } = useToast();
 
   const scrollToQuiz = () => {
     setPhase("quiz");
@@ -36,11 +39,27 @@ const Index = () => {
     setTimeout(() => quizRef.current?.scrollIntoView({ behavior: "smooth" }), 100);
   };
 
+  const saveResults = async (finalScores: Record<string, number>) => {
+    const { data: { session } } = await supabase.auth.getSession();
+    if (!session) return;
+    const arch = determineArchetype(finalScores);
+    await supabase.from("diagnostic_results").insert({
+      user_id: session.user.id,
+      scores: finalScores,
+      archetype_name: arch.primary.name,
+      archetype_subtitle: arch.primary.subtitle,
+      secondary_archetype_name: arch.secondary?.name || null,
+      secondary_archetype_subtitle: arch.secondary?.subtitle || null,
+    });
+    toast({ title: "Результаты сохранены в личном кабинете!" });
+  };
+
   const handleQuizComplete = (finalScores: Record<string, number>) => {
     setScores(finalScores);
     setPhase("results");
     setCurrentStep(4);
     window.scrollTo({ top: 0, behavior: "smooth" });
+    saveResults(finalScores);
   };
 
   const handleNavigate = (sectionId: string) => {

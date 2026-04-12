@@ -14,7 +14,39 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      diagnostic_results: {
+        Row: {
+          archetype_name: string
+          archetype_subtitle: string
+          created_at: string
+          id: string
+          scores: Json
+          secondary_archetype_name: string | null
+          secondary_archetype_subtitle: string | null
+          user_id: string
+        }
+        Insert: {
+          archetype_name: string
+          archetype_subtitle: string
+          created_at?: string
+          id?: string
+          scores: Json
+          secondary_archetype_name?: string | null
+          secondary_archetype_subtitle?: string | null
+          user_id: string
+        }
+        Update: {
+          archetype_name?: string
+          archetype_subtitle?: string
+          created_at?: string
+          id?: string
+          scores?: Json
+          secondary_archetype_name?: string | null
+          secondary_archetype_subtitle?: string | null
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never

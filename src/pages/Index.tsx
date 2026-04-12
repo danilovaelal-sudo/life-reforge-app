@@ -83,21 +83,22 @@ const Index = () => {
           </div>
         )}
 
-        {phase === "results" && archetype && (
-          <>
-            <div className="pt-12" />
-            <AnalyticsDashboard scores={scores} />
-            <TransformationMap scores={scores} />
-            <ArchetypeResult primary={archetype.primary} secondary={archetype.secondary} />
-            <PersonalPath />
-            <InsightsBlock scores={scores} />
-            <ThirtyDayPlan onSubscribe={() => document.getElementById("subscribe")?.scrollIntoView({ behavior: "smooth" })} />
-            <SubscriptionBlock />
-            <div id="personal-work">
-              <PersonalWorkCTA />
-            </div>
-          </>
-        )}
+            {phase === "results" && archetype && (
+              <>
+                <div className="pt-12" />
+                <AnalyticsDashboard scores={scores} />
+                <TransformationMap scores={scores} />
+                <ArchetypeResult primary={archetype.primary} secondary={archetype.secondary} />
+                <SendResultsEmail scores={scores} primary={archetype.primary} secondary={archetype.secondary} />
+                <PersonalPath />
+                <InsightsBlock scores={scores} />
+                <ThirtyDayPlan onSubscribe={() => document.getElementById("subscribe")?.scrollIntoView({ behavior: "smooth" })} />
+                <SubscriptionBlock />
+                <div id="personal-work">
+                  <PersonalWorkCTA />
+                </div>
+              </>
+            )}
 
         <TrustBlocks />
 

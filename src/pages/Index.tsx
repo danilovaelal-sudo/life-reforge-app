@@ -16,7 +16,7 @@ import PersonalWorkCTA from "@/components/PersonalWorkCTA";
 import TrustBlocks from "@/components/TrustBlocks";
 import ProgressIndicator from "@/components/ProgressIndicator";
 import { TopNav } from "@/components/TopNav";
-import AiAssistant, { AiAssistantFab } from "@/components/AiAssistant";
+
 
 import { determineArchetype } from "@/data/archetypes";
 import { motion } from "framer-motion";
@@ -29,7 +29,7 @@ const Index = () => {
   const [phase, setPhase] = useState<AppPhase>("landing");
   const [scores, setScores] = useState<Record<string, number>>({});
   const [currentStep, setCurrentStep] = useState(0);
-  const [aiOpen, setAiOpen] = useState(false);
+  
   const quizRef = useRef<HTMLDivElement>(null);
   const { toast } = useToast();
 
@@ -77,7 +77,7 @@ const Index = () => {
 
   return (
     <div className="min-h-screen flex flex-col w-full">
-      <TopNav onNavigate={handleNavigate} onOpenAiAssistant={() => setAiOpen(true)} />
+      <TopNav onNavigate={handleNavigate} />
 
       <main className="flex-1 pt-12">
         {(phase === "quiz" || phase === "results") && (
@@ -154,8 +154,6 @@ const Index = () => {
         </footer>
       </main>
 
-      <AiAssistantFab onClick={() => setAiOpen(true)} />
-      <AiAssistant open={aiOpen} onClose={() => setAiOpen(false)} />
     </div>
   );
 };
